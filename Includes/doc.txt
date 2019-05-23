@@ -1,0 +1,140 @@
+[TO DO]
+
+1.Connect f-ja iz DbConnect samo print poziva a ne greska f-ju;
+    -ili startovati sesiju pa rucno ubaciti i proslediti na admin_greska.php ili inkludovati greska f-ju
+
+6.ne radi za stampanje aktivnosti provera za nacin sortiranja... sta god da unese on prodje...
+
+8.sta da se stavi u sidebar?
+9.ubaciti profile
+11.KORISNICKE F-JE
+==================  [float:left]  ========================
+When the children elements are floated, they are taken out of the flow of the document. 
+In doing so, the parent no longer has defined dimensions, as the children !!! --> aren't technically occupying space <-- !!! . 
+Thus, the parent element collapses upon itself. The same thing occurs when absolutely positioning the children elements too.
+
+In this instance, we can fix it by adding overflow:hidden to the parent element, thus forcing it 
+to contain the children elements. Alternatively overflow:auto works just as well. 
+Some may suggest it is even better than overflow:hidden as you will be able to tell if any calculations are off.
+POSTAVITI overflow:hidden KOD PARENT-A PRI KORISCENJU FLOAT ATRIBUTA DA SE PRIKAZUJE LEPO POZADINA.
+
+ako se zeli wrap content prikaz treba za parent da se stavi display:inline-block!!!!!
+
+[PREPARE]
+Kad se radi prepare upita, on se prvo posalje u takvom obliku i proveri. Parametri se kasnije binduju i to sa 
+odgovorajucim tipom. To omogucava da, sta god da je uneo korisnik, nece da se tretira kao deo upita nego iskljucivo
+kao podatak u tabeli... Dakle, sprecava se SQLInjection.
+
+[plaseholder]
+Za input polja iz html-a, omogucava da kad se klikne na polje da bi se uneo tekst, odma se obrise taj presholder
+koji je ustvari neki definisani string.
+
+[PHP MAILER]
+-Download sa GitHub (ima i primer kad se odskroluje malo nize na sajtu)
+-Folder ubaciti u www -- phpmailer
+
+========= [SESSION] --objekti u sesiji -- incomplete object -- serijalizacija ============
+-Start session mora svuda da bude prva naredba. Medjutim, u admin.php, ispred je stavljena klasa (ukljucena klasa) Adminsitrator
+ da bi sesija mogla da prepozna objekat administrator koji se nalazi u sesiji. Bez toga ne radi!!!!!
+ Dakle, javljao se problem incomplete object... Sustina problema je u tome sto se vrsi serijalizacija i deserijalizacija 
+ objekata kada se prenose preko sesija. Zato je neophodno da se inkluduje klasa ciji se objekti ubacuju u sesiju pre startovanja 
+ sesije da bi se znalo kako da se deserijalizuju objekti.
+[=============  CSS  =============]
+--- da bi float left lepo radio za neki element, mora i njegov parent element da ima float left;
+promenio sam i stavio float left za side elemente kad sam pravio podesavanje naloga
+
+--- [float:left]
+When the children elements are floated, they are taken out of the flow of the document. 
+In doing so, the parent no longer has defined dimensions, as the children !!! --> aren't technically occupying space <-- !!! . 
+Thus, the parent element collapses upon itself. The same thing occurs when absolutely positioning the children elements too.
+
+In this instance, we can fix it by adding overflow:hidden to the parent element, thus forcing it 
+to contain the children elements. Alternatively overflow:auto works just as well. 
+Some may suggest it is even better than overflow:hidden as you will be able to tell if any calculations are off.
+POSTAVITI overflow:hidden KOD PARENT-A PRI KORISCENJU FLOAT ATRIBUTA DA SE PRIKAZUJE LEPO POZADINA.
+
+---ako se zeli wrap content prikaz treba za parent da se stavi display:inline-block!!!!!
+
+[============= IMAGE =============]
+<image widht="100px" height="100px" id="profil" 
+src="data:image/jpeg;base64,<?php echo base64_encode( $admin->image ); ?>"
+name="profil"/>
+
+
+
+VAZNO
+-kad se koristi f-ja iz DOM-a getElementByClassName i tom elementu pokusa da se pridoda f-ja za onclick, to NE RADI!!!
+ Potrebno je pribaviti odg element f-jom getElementById
+-u css kad se selektuje SLIKA ne koristi image nego img!!!!!!!
+
+-moze da se stavi link u action kad je metod post, npr admin.php?mode=dodavanje... itd.. ovako rade forme za dodavanje
+ elemenata u bazu, tj ode se na link ovaj i prikaze poruka
+
+-vazan koncept koji se ovde koristi jeste da pri submitovanju forme metodom post moze da se ode na neki specifican link 
+ tipa admin.php?jos=nesto... i tako npr posle dodavanja namirnice, ode se na taj link pa se prikaze pop up obavestenje
+KAKO RADI IZMENA
+-element koji se dinamicki stampa je forma koja na submit ide na odgovarajuci link koji je admin.php?.. pa jos nesto
+ vrlo je vazno da je to ceo link a ne samo admin.php jer je to ustvari link na koji se vraca posle izmene i gasenja forme
+-dakle, kad se klikne na izmeni ode se na onaj veci link, ali se ipak krene po stranici admin.php i upadne u if za dugme Izmeni
+ Tu se samo ucita objekat sa odg. id-em i ucita forma. Kad se submituje forma, (dugme sacuvaj), krene se opet po admin.php i 
+ upadne u if za sacuvajIzmene, gde se poziva azuriranje u bazi i vraca se na prethodnu stranicu sto ce ustvari biti onaj 
+ malopre pomenuti link --admin.php...jos nesto-- koji daje informacije koji se elementi prikazuju
+KAKO RADI OBRADA ZAHTEVA
+-princip je dosta slican kao i izmena namirnice i aktivnosti osim sto se ovde nakon prvog pop up-a otvara novi sa porukom
+ o uspesnosti operacije. Razlika ovde je sto sam morao da saljem i link kao hidden polje da bi prvi pop up mogao da ode
+ na taj link, a drugi kad se submituje da se vrati na prethodnu stranicu koja je ustvari taj link... Nisam mogao samo da 
+ za drugi pop up u GlavneF-je fajl napisem header ka odredjenom linku jer ne znam stranicu gde se nalazi zahtev koji se obradjue
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+MOZE DA SE VAR_DUMP NEKA PROMENLJIVA PRE NEGO STO ODE NA NEKU STRANU TAKO STO SE STAVI RETURN A IZNAD NJE VAR_DUMP.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+ISTRAZITI
+    -kako position absolute utice 
+    -kako z-index 9999 uspe da poredja popup i pozadinu na odg nacin
+
+z-index i da se obrise, ovde ce da radi.. On je stavio na 9999 da bi to bio najveci moguci z-index i da se prikaze 
+ispred svih drugih elemenata.Mozda npr ima elemenata na stranici sa z-indeksom 10 ili 30 ... 
+PROMENI DA NISU PIKSELI U FORMULI ZA POZICIONIRANJE POP-UP-A JER NE RADI LEPO ZA MOBILNI PRIKAZ  
+
+PROMENI FUNKCIJE, (forgot i check) NAKON STO JE DODATA SLIKA!!!!!!!!!!!!!!
+nema potrebe za promenom jer se u tom delu slika ne koristi
+
+
+POP IZMENI NAMIRNICU
+Imao sam nameru da koristim popup za izmenu namirnica ali jednostavno ne moze da se samo prikaze pop up iznad istampane 
+liste namirnica jer su one stampane dinamicki, a kad opet pozovem stranicu tj. kad odem preko POST metode na admin.php to 
+sto je istampano se izgubi. Jedini nacin je da se nekako asinhrono prikaze samo pop up
+
+
+
+BACKUP
+
+function DodavanjeAktivnosti(){
+    if(!empty($_POST["naziv"]) && !empty($_POST["kalorije_sat"])){
+        $slika=null;
+        if(isset($_FILES["slika"]) && $_FILES["slika"]["size"]>0 && $_FILES["slika"]["size"]<10000000){
+            $put = $_FILES["slika"]["tmp_name"];
+            $fp = fopen($put, 'r');
+            $slika = fread($fp, filesize($put));
+            fclose($fp);
+        }else{
+            $put = "../Images/aktivnost_default.png";
+            $fp = fopen($put, 'r');
+            $slika = fread($fp, filesize($put));
+            fclose($fp);
+        }
+        $akt = new Aktivnost(0, $_POST["naziv"], $_POST["kalorije_sat"], $slika);
+        $ad = new DbAdmin();
+        if($ad->dodajAktivnost($akt)){
+            $msg = "Aktivnost je dodata u bazu.";
+            include "../Includes/PopUp.php";
+        }else{
+            header("Location: admin_greska.php");
+        }
+    }else{
+        $msg="Molimo vas popunite sva polja!";
+        include "../Includes/PopUp.php";
+    }
+}

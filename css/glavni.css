@@ -1,0 +1,185 @@
+
+body {
+	background-color: #D9FFAD;
+	line-height: 1.5;
+	margin: 0 auto;
+	width: 80%;
+	font-family:"Comic Sans MS",Arial,"Times New Roman";
+}
+a:link, a:visited {
+	text-decoration: none;
+}
+a:hover,a:active{
+	
+}
+.mainHeader {
+	/*background-color: lightgreen;*/
+}
+.mainHeader img {
+	height:auto;		/*otprilike sam ustanovio da se postavlja da height automatski prati width*/
+						/*https://www.w3schools.com/css/css_rwd_images.asp*/
+	width:100%;
+	margin: 2% 0;
+}
+.mainHeader .image2{
+    display:none;
+}
+
+.mainHeader nav {
+	height: 40px;
+	background-color:#B1000E;
+	border-radius:5px;
+}
+
+.mainHeader nav ul {
+	list-style: none;
+	margin: 0 auto;			/*ako nije nula smeta tj utice na marginu header-a*/
+}
+
+.mainHeader nav ul li {
+	float:left;
+	display:inline;			/*default-ni prikaz je inline...*/
+}
+
+.mainHeader nav a:link, .mainHeader nav a:visited {
+	color: #fff;
+	display:inline-block;
+	padding: 8px 20px;		/*8 odgovara da bi bilo na sredinu*/
+	height:24px;			/*ovo i ne mora, jer se sad savrseno pogodilo, ali sam stavio da znam(24+2*8=40-->nav height)*/
+}
+
+.mainHeader nav a:hover, .mainHeader nav a:active,
+.mainHeader nav .active_htab{						/*tamo je .active a:link i .active a:visited, a u html li je klase active*/
+	background-color: green;
+	text-shadow:none;
+}
+
+.mainHeader nav ul li a{
+	border-radius: 5px;
+}
+
+main {
+	width:70%;
+	float:left;
+	border-radius:5px;	 	/*da li treba ovde uopste???*/
+	/*background-color:purple;*/
+}
+
+.mainContent {
+	background-color: #a6f24d;
+	border-radius:5px;
+	padding: 3% 5%;
+	margin-top: 3%;
+}
+.postInfo {
+	font-style:italic;
+	color: gray;
+}
+aside {
+	width:30%;
+	/*background-color:red;*/
+	float:left;
+}
+
+.top-sidebar,.middle-sidebar,.bottom-sidebar{	/*prvo je width bila 90%, ali sam stavio padding 5% sa obe strane pa sam smanjio na 80%*/
+	background:#a6f24d;/*#A8E363;*/
+	width:80%;
+	margin:7% 0 0 10%;
+	padding: 5% 5%;
+	border-radius:5px;
+        float:left;     /*dodao kad sam pravio podesavanje naloga na admin strani*/
+}
+.top-sidebar {
+    text-align: center;
+}
+.top-sidebar img{
+   width:100%;
+}
+.middle-sidebar {
+    text-align: center;
+}
+.middle-sidebar #poruka{
+    background-color:#D9FFAD;
+    border-radius: 5px;
+}
+.bottom-sidebar {
+}
+
+
+.mainFooter {
+	width:100%;
+	float:left;
+	border-radius:5px;
+	background-color:#B1000E;
+	margin:3% 0;
+}
+
+.mainFooter p {
+	color: white;
+	width:90%;
+	margin: 2% auto;
+}
+
+
+@media only screen and (min-width: 150px) and (max-width: 600px)
+{
+	body {
+		width: 94%;
+		font-size:105%;
+	}
+	/*========= header ===========*/
+        .mainHeader .image1{
+            display:none;
+        }
+        .mainHeader .image2{
+            display:block;
+        }
+		
+	.mainHeader nav {
+		height: 160px;
+	}
+	
+	.mainHeader nav ul {
+		padding-left:0;
+	}
+
+	.mainHeader nav ul li {
+		width:100%;
+		text-align:center;		/*width je 100% pa margin:0 auto nece nista 
+		margin: 0 auto;			da uradi po pitanju pozicije,tj samo treba text align*/	
+	}
+
+	.mainHeader nav a:link, .mainHeader nav a:visited {
+		display:block;
+	}
+	/*============ main ==============*/
+	main {
+		width:100%;
+		float:left;
+	}
+
+	.postInfo {
+		display:none;			/* ne prikazuje se!!!! */
+	}
+	
+	/*============ aside ==============*/
+	
+	aside {
+		width:100%;
+		float:left;
+	}
+	
+	.top-sidebar,.middle-sidebar,.bottom-sidebar{
+		width:90%;
+		margin:7% 0 0 0;
+		padding: 5% 5%;
+		border-radius:5px;
+	}
+	.top-sidebar {
+	}
+	.middle-sidebar {
+	}
+	.bottom-sidebar {
+	}
+	
+}

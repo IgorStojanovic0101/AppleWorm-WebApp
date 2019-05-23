@@ -1,0 +1,18 @@
+
+content{
+    clear:both;
+}
+content input{
+    font-size:20px;
+    margin: 2%;
+}
+content label{
+    display:block;
+    text-align: left;
+    margin-left: 5%;
+}
+content .btnSubmit{
+    margin-top: 5%;
+    background-color:red;
+}
+

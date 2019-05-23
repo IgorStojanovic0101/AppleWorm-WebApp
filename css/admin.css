@@ -1,0 +1,223 @@
+/*sidebars*/
+.top-sidebar {
+    text-align: center;
+    padding-top: 5%;
+}
+.top-sidebar h2{
+    margin: 0;
+}
+.top-sidebar img{
+    width:60%;
+    border: 2px solid gray;
+    border-radius: 5%;
+}
+.top-sidebar .btnSubmit{
+    display:block;
+    background-color: red;
+    color:white;
+    margin:0 auto;
+}
+.middle-sidebar{
+    text-align: left;
+}
+.middle-sidebar a{
+    color:#c60717;
+}
+.bottom-sidebar{
+    text-align: center;
+}
+.bottom-sidebar input {
+    width:80%;
+}
+.bottom-sidebar ul{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+.bottom-sidebar a{
+    background-color: #abff73;
+    width:33.333%;
+    padding:0;
+    float:left;
+    overflow:hidden;
+}
+.bottom-sidebar .div-lista{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding:0;
+    width:90%;
+    margin: 0 3.7%;
+}
+/*sidebar podesavanja*/
+.div-username, .div-password, .div-slika{
+    width:80%;
+    background-color: lightgoldenrodyellow;
+    border:1px solid black;
+    border-radius: 5px;
+    padding:5%;
+    margin:0 3.7%;
+}
+.div-username, .div-password{
+    display:none;
+}
+a.activeLink{
+    background-color: lightgoldenrodyellow;
+}
+content #nemaRezultata{
+    font-size:150%;
+    text-align: center;
+}
+content #divStranice{
+    background-color:#D9FFAD;
+    text-align: center;
+    margin:3%;
+    border-radius:5px;
+}
+content #divStranice #nextPage{
+    float:right;
+}
+content #divStranice #prevPage{
+    float:left;
+}
+content #divStranice .currPage{
+    color:white;
+    background-color: green;
+    font-size:140%;
+}
+/*element namirnica dinamicki stampan iz baze*/
+content #namirnica{
+    font-size:80%;
+    border: 1px solid white;
+    padding:1%;
+    width:85%;
+    margin: 0 auto;
+    margin-bottom: 1.5%;
+    background-color: lightyellow;
+    overflow: hidden;           /*bez ove linije ne prikazuje boju.. to je uzrokovano floating-om..
+                                 tj. kad se obrise npr float left za #drugi, boja se prikazuje....*/
+}
+content #namirnica b{
+    font-size: 100%;
+}
+content #namirnica img{
+    width:20%;
+    float:left;
+    border:1px solid black;
+    border-radius: 10px;
+}
+content #namirnica #prvi{
+    float:left;
+    width:38%;/*
+    background-color:yellow;*/
+}
+content #namirnica #drugi{
+    float:left;
+    width:40%;/*
+    background-color:red;*/
+}
+content #namirnica input{
+    float:left;
+    width:50%;
+    margin:0;
+}
+content #namirnica #dugmad{
+    float:right;
+    padding:0;
+}
+/*element aktivnosti dinamicki stampan iz baze*/
+content #aktivnost{
+    font-size:100%;
+    margin-bottom: 1%;
+    background-color: lightyellow;
+    overflow: hidden;
+}
+content #aktivnost img{
+    width:16%;
+    float:left;
+    border:1px solid black;
+    border-radius: 10px;
+}
+content #aktivnost #aktivnost_labele{
+    float:left;
+    margin: 0 5%;
+    background-color: white;
+}
+content #aktivnost input{
+    float:right;
+    width:50%;
+    margin:0;
+}
+content #aktivnost #dugmad{
+    float:right;
+    padding:0;
+}
+/*element zahtev dinamicki stampan iz baze*/
+content #zahtev{
+    margin-bottom: 1%;
+    background-color: lightyellow;
+    overflow: hidden;
+}
+content #zahtev #prvi,
+content #zahtev #drugi,
+content #zahtev #treci{
+    font-size:80%;
+    float:left;
+    margin:0 1%;
+    overflow: hidden;
+    width:25%;
+}
+content #zahtev #prvi{
+    width:40%;
+}
+content #zahtev #treci{
+    float:right;    
+}
+content #zahtev input{
+    float:right;
+}
+content #zahtev #id_kor{
+    font-size:70%;
+    float:right;
+}
+/*glavne forme, u content*/
+content form{
+    border:1px solid black;
+    border-radius:5px;
+    padding:2%;
+}
+content form input{
+    margin:1%;
+    border-radius: 5px;
+}
+content [id^=gl] {
+    display:none;
+    clear:both;
+    width: 80%;
+    text-align: center;
+    margin:0 auto;
+}
+#glNamirnicaDodaj{
+    display:block;
+}
+#glPrikazNamirnica{
+    width:100%;
+    padding:0;
+}
+#glPrikazNamirnica input{
+    margin:0;
+}
+/*
+#glNamirnicaDodaj #kontejner{
+    background-color:purple;
+    display:inline-block;
+    text-align: right;
+}*/
+
+@media only screen and (min-width: 150px) and (max-width: 600px){
+    
+    content #namirnica{
+    font-size:80%;
+    width:100%;         /*bez ove linije ne prikazuje boju.. to je uzrokovano floating-om..
+                                 tj. kad se obrise npr float left za #drugi, boja se prikazuje....*/
+}
+}

@@ -1,0 +1,116 @@
+.subHeader{
+    float:left;
+    width:100%;
+    margin-bottom: 5%;
+    padding:0 0;
+}
+
+.subHeader a{               /*Ovde treba da se stavi padding i display: block(GLAVNO!!!)*/
+    text-decoration: none;
+    display: block;
+    color: black;
+    background-color: yellowgreen;
+    padding: 3% 0;
+    border: 1px solid #B1000E;
+}
+
+#fSignin{           /*inicijalno je prikazana samo login forma */
+    display: none;
+}
+/*Ne moze da stoji samo .activeTab; Mora ili a.activeTab ili npr. .subHeader .activeTab Odnosi se na sve a
+koji su klase activeTab pa zato mora spojeno*/
+.subHeader ul li a.activeTab {
+    background-color: green;
+}
+
+.subHeader ul {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0 0;
+}
+
+.subHeader li {         /*Ako se ovde stavi border od 1px pravi probleme(prelazi u novi red...)*/
+    width: 50%;             /*border ne moze u procentima...*/
+    display:inline-block;
+    text-align: center;
+    background-color: blueviolet;
+    float:left;
+}
+.mainContent{
+    width:50%;
+    margin:0 auto;
+    margin-top:10%;
+    margin-bottom:10%;
+    text-align: center;
+}
+main{
+    width:100%;
+}
+content{
+    clear:both;
+    margin: auto;
+}
+content input{
+    width:80%;
+    padding: 0 0;
+    font-size:22px;
+    margin-bottom: 4%;
+}
+content label{
+    display:block;
+    text-align: left;
+    margin-left: 5%;
+}
+content .btnSubmit{
+    width:40%;
+    color:green;
+    margin-top: 5%;
+}
+
+
+@media only screen and (min-width: 150px) and (max-width: 600px)
+{
+   
+    .subHeader ul {
+        width:90%;
+        list-style: none;
+        margin: 0 auto;
+        text-align: center;
+        padding: 2% 0;
+        text-align: center;
+    }
+
+    .subHeader li {         /*Ako se ovde stavi border od 1px pravi probleme(prelazi u novi red...)*/
+        width: 50%;             /*border ne moze u procentima...*/
+        display:inline-block;
+        text-align: center;
+        background-color: blueviolet;
+    }
+    .mainContent{
+        width:100%;
+        padding: 0 0;
+        margin: 0 auto;
+        margin-top: 10%;
+        margin-bottom:10%;
+    }
+    content{
+        clear:both;
+    }
+    content input{
+        width:80%;
+        padding: 0 0;
+        font-size:22px;
+        margin-bottom: 4%;
+    }
+    content label{
+        display:block;
+        text-align: left;
+        margin-left: 5%;
+    }
+    content .btnSubmit{
+        width:30%;
+        color:green;
+        margin-top: 5%;
+    }
+    
+}
